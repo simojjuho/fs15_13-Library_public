@@ -1,4 +1,5 @@
 # Assignment: Library Management System
+made by: Juho Simojoki
 
 The goal of this assignment is to implement a basic Library Management System as a C# console application. This application will help you practice key principles of Object-Oriented Programming: Encapsulation, Abstraction, Inheritance, and Polymorphism.
 
