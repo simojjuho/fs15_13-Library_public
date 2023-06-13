@@ -4,8 +4,16 @@ public abstract class Book
 {
     private string _title { get; } = string.Empty;
     private string _author { get; } = string.Empty;
-    private string _isbn { get; } = string.Empty;
+    private string _isbn = string.Empty;
     private string _publicationYear { get; } = string.Empty;
+
+    public string Isbn
+    {
+        get
+        {
+            return _isbn;
+        }
+    }
 
     public Book(string title, string author, string isbn, string publicationYear)
     {
