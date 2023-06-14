@@ -1,34 +1,10 @@
+using Base;
+
 namespace Library;
 
-public class BookLoan
+public class BookLoan : LoanBase
 {
-    private string _customerId = string.Empty;
-    private string _isbn = string.Empty;
-    private bool _isActive = false;
-
-    public string Isbn
+    public BookLoan(string customerId, string itemId) : base(customerId, itemId)
     {
-        get
-        {
-            return _isbn;
-        }
-    }
-    
-    public bool isActive
-    {
-        get
-        {
-            return _isActive;
-        }
-        set
-        {
-            _isActive = value;
-        }
-    }
-
-    public BookLoan(string customerId, string isbn)
-    {
-        _customerId = customerId;
-        _isbn = isbn;
     }
 }
