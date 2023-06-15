@@ -1,4 +1,4 @@
-namespace Base;
+namespace LibraryManagement.BaseClasses;
 
 public abstract class ItemBase
 {

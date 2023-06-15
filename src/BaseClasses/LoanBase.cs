@@ -1,4 +1,4 @@
-namespace Base;
+namespace LibraryManagement.BaseClasses;
 
 public abstract class LoanBase
 {
@@ -72,11 +72,14 @@ public abstract class LoanBase
         }
     }
 
-    public LoanBase(string customerId, string itemId)
+    public LoanBase()
     {
-        _customerId = customerId;
-        _itemId = itemId;
         _id = new Random().Next().ToString();
         _isActive = true;
+    }
+
+    public override string ToString()
+    {
+        return $"Loan id {_id}: item id: {_itemId}, borrowed by {_customerId}";
     }
 }

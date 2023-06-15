@@ -1,30 +1,27 @@
-namespace Library;
+using LibraryManagement.BaseClasses;
 
-public abstract class Book
+namespace LibraryManagement.Library;
+
+public abstract class Book : ItemBase
 {
     private string _title { get; } = string.Empty;
     private string _author { get; } = string.Empty;
-    private string _isbn = string.Empty;
     private string _publicationYear { get; } = string.Empty;
-
-    public string Isbn
+    
+    public void PrintInfo()
     {
-        get
-        {
-            return _isbn;
-        }
+        Console.WriteLine($"Book {_title} by {_author} ({_publicationYear}), ISBN: {base.Id}");
     }
 
-    public Book(string title, string author, string isbn, string publicationYear)
+    protected Book(string title, string author, string id, string publicationYear) : base(id)
     {
         _title = title;
         _author = author;
-        _isbn = isbn;
-        _publicationYear = publicationYear;        
+        _publicationYear = publicationYear;
     }
 
-    public void PrintInfo()
+    public override string ToString()
     {
-        Console.WriteLine($"Book {_title} by {_author} ({_publicationYear}), ISBN: {_isbn}");
+        return $"Book title: {_title} by {_author}, published in {_publicationYear}. ISBN: {base.Id}";
     }
 }

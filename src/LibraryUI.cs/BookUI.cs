@@ -1,34 +1,34 @@
-using Utilities;
-using Library;
+using LibraryManagement.Helpers;
+using LibraryManagement.Library;
 
-namespace LibraryUI;
+namespace LibraryManagement.LibraryUI.cs;
 
-public class BookUI
+public class BookUi
 {
     public Book MakeABook()
     {
-        Random random = new();
-        string newTitle = TextInputHelper.GetInput("What is the title of the book: ");
-        string newAuthor = TextInputHelper.GetInput("Who is the author of the book: ");
-        string newPublicationYear = TextInputHelper.GetInput("Which year was the book released: ");
-        string newIsbn = $"{random.Next(1000)}-{random.Next(1000)}-{random.Next(10000)}";
+        Random Random = new();
+        var NewTitle = TextInputHelper.GetInput("What is the title of the book: ");
+        var NewAuthor = TextInputHelper.GetInput("Who is the author of the book: ");
+        var NewPublicationYear = TextInputHelper.GetInput("Which year was the book released: ");
+        var NewIsbn = $"{Random.Next(1000)}-{Random.Next(1000)}-{Random.Next(10000)}";
 
         Console.WriteLine("Which type of a book are you adding:\n1. Novel\n2. Research paper\n3. Comic book\n4. Text book");
         while(true)
         {
-            string? type = Console.ReadLine();
-            switch(type)
+            var Type = Console.ReadLine();
+            switch(Type)
             {
                 case "1":
-                    string newGenre = TextInputHelper.GetInput("What genre does the book belong to :");
-                    return new Novel(newTitle, newAuthor, newIsbn, newPublicationYear, newGenre);
+                    var NewGenre = TextInputHelper.GetInput("What genre does the book belong to :");
+                    return new Novel(NewTitle, NewAuthor, NewIsbn, NewPublicationYear, NewGenre);
                 case "2":
-                    return new ResearchPaper(newTitle, newAuthor, newIsbn, newPublicationYear);
+                    return new ResearchPaper(NewTitle, NewAuthor, NewIsbn, NewPublicationYear);
                 case "3":
-                    string newArtist = TextInputHelper.GetInput("Who is the artist: ");
-                    return new Comic(newTitle, newAuthor, newIsbn, newPublicationYear, newArtist);
+                    var NewArtist = TextInputHelper.GetInput("Who is the artist: ");
+                    return new Comic(NewTitle, NewAuthor, NewIsbn, NewPublicationYear, NewArtist);
                 case "4":
-                    return new TextBook(newTitle, newAuthor, newIsbn, newPublicationYear);               
+                    return new TextBook(NewTitle, NewAuthor, NewIsbn, NewPublicationYear);               
                 default:
                     Console.WriteLine("Please choose one of the given options 1-4: ");
                     break;

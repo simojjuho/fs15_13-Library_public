@@ -1,4 +1,6 @@
-namespace Library;
+using LibraryManagement.Interfaces;
+
+namespace LibraryManagement.Library;
 
 public class ResearchPaper : Book, IPrintable
 {

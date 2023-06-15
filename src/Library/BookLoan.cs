@@ -1,10 +1,13 @@
-using Base;
+using LibraryManagement.BaseClasses;
 
-namespace Library;
+namespace LibraryManagement.Library;
 
 public class BookLoan : LoanBase
 {
-    public BookLoan(string customerId, string itemId) : base(customerId, itemId)
+    public BookLoan() { }
+
+    public override string ToString()
     {
+        return $"Bookloan id: {base.Id}, book id: {base.ItemId}, customer {base.CustomerId}. Is returned: {base.IsActive}";
     }
 }

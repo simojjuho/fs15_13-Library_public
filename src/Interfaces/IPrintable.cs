@@ -1,4 +1,4 @@
-namespace Library;
+namespace LibraryManagement.Interfaces;
 
 public interface IPrintable
 {

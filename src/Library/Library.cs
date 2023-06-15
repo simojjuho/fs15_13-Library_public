@@ -1,32 +1,9 @@
-using Utilities;
-using Base;
+using LibraryManagement.BaseClasses;
 
-namespace Library;
+namespace LibraryManagement.Library;
 
-public class Library
+public class Library : LoanServiceBase<Book, BookLoan, LibraryMember>
 {
-    private List<Book> _bookCollection = new();
-    private List<PersonBase> _personCollection = new();
-    private List<BookLoan> _activeLoans = new();
-    private List<BookLoan> _pastLoans = new(); 
-
     public Library()
-    {}    
-
-    public void AddPerson(PersonBase person)
-    {
-        
-        
-        
-    }
-
-    public void RemovePerson(string id)
-    {
-        
-    }
-
-    public void EditPerson(string id)
-    {
-        
-    }
+    {}
 }

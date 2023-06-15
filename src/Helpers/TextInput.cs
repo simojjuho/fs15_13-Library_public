@@ -1,4 +1,4 @@
-namespace Utilities;
+namespace LibraryManagement.Helpers;
 
 public static class TextInputHelper
 {
@@ -7,10 +7,10 @@ public static class TextInputHelper
         while(true)
         {
             Console.Write(instruction);
-            string? input = Console.ReadLine();
-            if(input != null)
+            var Input = Console.ReadLine();
+            if(Input != null)
             {
-                return input;
+                return Input;
             }
             else
             {

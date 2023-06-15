@@ -1,4 +1,6 @@
-namespace Library;
+using LibraryManagement.Interfaces;
+
+namespace LibraryManagement.Library;
 
 public class Comic : Book, IBorrowable
 {
@@ -17,5 +19,10 @@ public class Comic : Book, IBorrowable
     public void Return()
     {
         throw new NotImplementedException();
+    }
+
+    public override string ToString()
+    {
+        return base.ToString() + $", artist: {_artist}";
     }
 }

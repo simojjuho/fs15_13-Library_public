@@ -1,6 +1,8 @@
-namespace Library;
+using LibraryManagement.BaseClasses;
 
-public class Customer : Person
+namespace LibraryManagement.Library;
+
+public class Customer : PersonBase
 {
     public Customer(string name) : base(name)
     {}

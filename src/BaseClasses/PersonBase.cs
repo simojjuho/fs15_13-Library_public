@@ -1,28 +1,29 @@
-namespace Base;
+namespace LibraryManagement.BaseClasses;
 
 public abstract class PersonBase
 {
-    private string _id { get; } = string.Empty;
-    private string _name { get; } = string.Empty;
-    private string priviledge = string.Empty;
+    private string _id = string.Empty;
+    private string _name;
+    
+    public string Id => _id;
 
-    public string Priviledge
+    public string Name
     {
-        get
+        get => _name;
+        set
         {
-            return priviledge;
+            if (value.Length > 1)
+            {
+                _name = value;
+            }
+            else
+            {
+                throw new Exception("New name must be at least 2 letters");
+            }
         }
     }
 
-    public string Id
-    {
-        get
-        {
-            return _id;
-        }
-    }
-
-    public PersonBase(string name)
+    protected PersonBase(string name)
     {
         _name = name;
     }

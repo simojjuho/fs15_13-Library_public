@@ -1,23 +1,10 @@
-namespace Library;
+using LibraryManagement.BaseClasses;
 
-public class Librarian : Person
+namespace LibraryManagement.Library;
+
+public class Librarian : PersonBase
 {
     public Librarian(string name) : base(name)
     {
-    }
-
-    public void AddBook()
-    {
-        
-    }
-
-    public void RemoveBook(string isbn)
-    {
-        
-    }
-
-    public void EditBook(string isbn)
-    {
-        
     }
 }
