@@ -1,24 +1,32 @@
-using LibraryManagement.Interfaces;
-
 namespace LibraryManagement.Library;
 
-public class Comic : Book, IBorrowable
+public class Comic : Borrowable
 {
-    private string _artist { get; } = string.Empty;
-    public Comic(string title, string author, string isbn, string publicationYear, string artist)
-    : base(title, author, isbn, publicationYear)
-    {
-        _artist = _artist;
-    }
+    private string _artist;
 
-    public void Borrow()
+    public string Artist
     {
-        throw new NotImplementedException();
+        get
+        {
+            return _artist;
+        }
+        set
+        {
+            if (value.Length > 2)
+            {
+                _artist = value;
+            }
+            else
+            {
+                throw new Exception("Artist name must be atleast three letters long");
+            }
+        }
     }
-
-    public void Return()
+    
+    public Comic(string title, string author, string publicationYear, string artist)
+    : base(title, author,  publicationYear, true, false)
     {
-        throw new NotImplementedException();
+        _artist = artist;
     }
 
     public override string ToString()

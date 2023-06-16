@@ -2,7 +2,7 @@ namespace LibraryManagement.BaseClasses;
 
 public abstract class PersonBase
 {
-    private string _id = string.Empty;
+    private readonly string _id = string.Empty;
     private string _name;
     
     public string Id => _id;
@@ -25,6 +25,8 @@ public abstract class PersonBase
 
     protected PersonBase(string name)
     {
+        var random = new Random();
         _name = name;
+        _id = $"{random.Next((10000))}";
     }
 }

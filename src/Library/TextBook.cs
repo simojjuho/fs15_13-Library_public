@@ -2,22 +2,11 @@ using LibraryManagement.Interfaces;
 
 namespace LibraryManagement.Library;
 
-public class TextBook : Book, IBorrowable, IPrintable
+public class TextBook : Borrowable, IPrintable
 {
-    public TextBook(string title, string author, string isbn, string publicationYear)
-    : base(title, author, isbn, publicationYear)
-    {
-    }
-
-    public void Borrow()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Return()
-    {
-        throw new NotImplementedException();
-    }
+    public TextBook(string title, string author, string publicationYear)
+    : base(title, author, publicationYear, true, true)
+    {}
 
     public void PrintPages(int startPage, int endPage)
     {

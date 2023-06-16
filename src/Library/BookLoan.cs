@@ -8,6 +8,6 @@ public class BookLoan : LoanBase
 
     public override string ToString()
     {
-        return $"Bookloan id: {base.Id}, book id: {base.ItemId}, customer {base.CustomerId}. Is returned: {base.IsActive}";
+        return $"Bookloan id: {base.Id}, book id: {base.ItemId}, customer {base.CustomerId}. Loan active: {base.IsActive}";
     }
 }

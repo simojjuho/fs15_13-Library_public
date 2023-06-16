@@ -2,18 +2,17 @@ namespace LibraryManagement.BaseClasses;
 
 public abstract class ItemBase
 {
-    private string _id;
+    private readonly string _id;
+    private readonly bool _canBorrow;
 
-    public string Id
-    {
-        get
-        {
-            return _id;
-        }
-    }
+    public bool CanBorrow => _canBorrow;
 
-    public ItemBase(string id)
+    public string Id => _id;
+
+    protected ItemBase(bool canBorrow)
     {
-        _id = id;    
+        var random = new Random();
+        _id = $"{random.Next(1000)}-{random.Next(1000)}-{random.Next(10000)}";
+        _canBorrow = canBorrow;
     }    
 }

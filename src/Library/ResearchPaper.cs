@@ -4,7 +4,8 @@ namespace LibraryManagement.Library;
 
 public class ResearchPaper : Book, IPrintable
 {
-    public ResearchPaper(string title, string author, string isbn, string publicationYear) : base(title, author, isbn, publicationYear)
+    public ResearchPaper(string title, string author, string publicationYear) 
+        : base(title, author, publicationYear, false, true)
     {}
 
     public void PrintPages(int startPage, int endPage)
