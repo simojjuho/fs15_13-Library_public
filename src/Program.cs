@@ -42,5 +42,9 @@ class Program
         
         Console.WriteLine(library);
         
+        librarian.RemoveBook(book2, library);
+        customer1.ReturnBook(book1, library);
+        library.ListLoans();
+        
     }
 }

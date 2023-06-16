@@ -9,6 +9,8 @@ public abstract class LoanServiceBase<T, K, P> where T : ItemBase where K : Loan
 
     public List<K> ActiveLoans => _activeLoans;
 
+    public List<T> Items => _items;
+    
     protected LoanServiceBase() {}
 
     public bool AddItem(T item){
@@ -25,7 +27,7 @@ public abstract class LoanServiceBase<T, K, P> where T : ItemBase where K : Loan
 
     public bool RemoveItem(string id)
     {
-        _items = _items.Where(item => item.Id == id).ToList();
+        _items = _items.Where(item => item.Id != id).ToList();
         return !_items.Exists(item => item.Id == id);
     }
 
@@ -51,16 +53,15 @@ public abstract class LoanServiceBase<T, K, P> where T : ItemBase where K : Loan
 
     public bool ReturnItem(string id){
         var Loan = _activeLoans.Find((K loan) => loan.ItemId == id);
-        if(Loan != null)
+        if(Loan == null)
         {
             return false;
         }
-        else
-        {
-            _activeLoans = _activeLoans.Where((K loan) => loan.ItemId != id).ToList();
-            _pastLoans.Add(Loan);
-            return true;
-        }
+
+        _activeLoans = _activeLoans.Where((K loan) => loan.ItemId != id).ToList();
+        Loan.IsActive = false;
+        _pastLoans.Add(Loan);
+        return true;
     }
 
     public T GetItemById(string id)
@@ -135,7 +136,16 @@ public abstract class LoanServiceBase<T, K, P> where T : ItemBase where K : Loan
 
     public override string ToString()
     {
-        var AmountOfLibrarians = _members.Count(m => m.GetType().Name == "Librarian");
-        return $"Library: books {_items.Count}, library members: {_members.Count} of which  personnel: {AmountOfLibrarians}";
+        var AmountOfPersonnel = _members.Count(m => m.GetType().Name == "Librarian");
+        return $"Collection items {_items.Count}, service members: {_members.Count} of which  personnel: { AmountOfPersonnel }";
+    }
+    
+    public void ListItems()
+    {
+        Console.WriteLine("Items in the collection:");
+        foreach (var Item in Items)
+        {
+            Console.WriteLine(Item);
+        }
     }
 }

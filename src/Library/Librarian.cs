@@ -23,6 +23,6 @@ public class Librarian : LibraryMember
     public void RemoveBook(Book book, Library library)
     {
         var IsSuccess = library.RemoveItem(book.Id);
-        Console.WriteLine(IsSuccess ? "Success" : "Adding failed");
+        Console.WriteLine(IsSuccess ? $"Succesfully removed book { book }" : "Remove failed");
     }
 }

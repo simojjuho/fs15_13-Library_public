@@ -14,5 +14,10 @@ public abstract class ItemBase
         var random = new Random();
         _id = $"{random.Next(1000)}-{random.Next(1000)}-{random.Next(10000)}";
         _canBorrow = canBorrow;
-    }    
+    }
+
+    public override string ToString()
+    {
+        return $"Item id: { Id }";
+    }
 }
