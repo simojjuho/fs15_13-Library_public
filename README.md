@@ -5,11 +5,13 @@ The goal of this assignment is to implement a basic Library Management System as
 
 ## Description
 
-A library has books and users. Users can be either cutomers or librarians. Librarians can add or remove books from the library and also can issue books to customers. Customers can request to borrow or return books. Also, library can have different types of books (Comic, Novel, TextBook, ResearchPaper) as well.
+This project does not have an interactive UI, but rather it's got some statements with which to demonstrate how the program works.
 
-Your job is to model this system using classes, interfaces, and/or abstract classes as you see fit.
+The projet wasn't very easy, as I find the lack of proper planning slowing down the development drastically. And at the same time it also might have brought some illogicalities into the project
 
-## Features
+What I am really proud of in this project is the use of generic classes instead of making just the library class, LoanServiceBase, that I could use in any other similar services with very little changes. It's not perfect, but I believe this gives me a lot more comfort to use abstraction later on as well.
+
+## Required features
 
 1. `Library` should manage the collection of Book objects, and `Person` objects. This class should have following methods:
    - Add, Remove, Borrow, and Return books
@@ -23,12 +25,43 @@ Your job is to model this system using classes, interfaces, and/or abstract clas
    - `TextBook`, and `ResearchPaper` can be printed (to certain amount of pages), but `Comic`, `Novel` cannot. The `PrintPages(int startPage, endPage)`method uses `Console.WriteLine` to inform the start page and end page to be printed, in case the amount of to-be-printed pages do not exceed the maximum allowed pages.
    - `Comic`and `Novel` should have different implementations of `PrintInfo()` with extra information about the extra properties, while `TextBook`, and `ResearchPaper` have default implementation.
 
-## Requirements
+## Further fields of learning
 
-1. Encapsulation: Use proper encapsulation for the fields in your classes. Use access modifiers to limit the access to the class members.
+There are some things identified, that require me to learn more of them in the future.
 
-2. Abstraction: Use abstract classes/interfaces where necessary. Think about what methods are common to certain objects and could be abstracted into a superclass or interface.
+1. Proper planning of the project and class structure.
+2. More of abstraction. Some classes should be abstracted even more and made generic classes.
+3. Single Responsibility principle has not been implemented enough at all.
+4. Also Open / Close principle, which would benefit greatly oof better planning.
 
-3. Inheritance: Make use of inheritance. There should be a clear hierarchy and use of both base and derived classes.
+## Project tree
 
-4. Polymorphism: Your program should utilize polymorphism, allowing objects to decide which methods should be invoked.
+```
+├── Folder.DotSettings.user
+├── LibraryManagement.csproj
+├── README.md
+└── src
+    ├── BaseClasses
+    │   ├── ItemBase.cs
+    │   ├── LoanBase.cs
+    │   ├── LoanServiceBase.cs
+    │   └── PersonBase.cs
+    ├── Helpers
+    │   └── TextInput.cs
+    ├── Interfaces
+    │   └── IPrintable.cs
+    ├── Library
+    │   ├── Book.cs
+    │   ├── BookLoan.cs
+    │   ├── Borrowable.cs
+    │   ├── Comic.cs
+    │   ├── Customer.cs
+    │   ├── Librarian.cs
+    │   ├── Library.cs
+    │   ├── LibraryMember.cs
+    │   ├── Novel.cs
+    │   ├── ResearchPaper.cs
+    │   └── TextBook.cs
+    └── Program.cs
+
+```
